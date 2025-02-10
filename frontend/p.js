@@ -44,15 +44,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateButtonColors();
 });
+
+// ✅ Moved this function outside to be globally accessible
 function triggerFileUpload() {
-        const fileInput = document.getElementById("file-upload");
-        fileInput.click();
-        fileInput.addEventListener("change", function () {
-            if (fileInput.files.length > 0) {
-                const fileName = fileInput.files[0].name;
-                document.getElementById("file-upload-container").innerHTML = fileName;
-            } else {
-                document.getElementById("file-upload-container").innerHTML = "No file selected";
-            }
-        });
-    };
+    const fileInput = document.getElementById("file-upload");
+    fileInput.click();
+    fileInput.addEventListener("change", function () {
+        if (fileInput.files.length > 0) {
+            const fileName = fileInput.files[0].name;
+            document.getElementById("file-upload-container").innerHTML = fileName;
+        } else {
+            document.getElementById("file-upload-container").innerHTML = "No file selected";
+        }
+    });
+}
+
