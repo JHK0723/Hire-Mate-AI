@@ -4,7 +4,7 @@ import time
 import ast  # Safer than eval()
 from pypdf import PdfReader
 
-PDF_PATH = r"C:\projects\Hire-Mate-AI\backend\resume-computer-engineering.pdf"
+PDF_PATH = r"./resume-computer-engineering.pdf"
 
 def extract_roles_and_companies(text):
     """Extracts a dictionary with companies as keys and job roles as values using LLaMA 3, strictly based on the resume."""
@@ -13,28 +13,28 @@ def extract_roles_and_companies(text):
     You are given the following resume text: 
 
     {text}
-
+    Based on candidate's resume generate a dictionary with 20 key-value pairs where the key is a company suggested based on his resume and the value is a job role suggested based on the resume.
     Your task is to extract **EXACTLY 20** real companies/startups **mentioned in the resume** and assign **a relevant job role** to each one **based on the resume content**.
-
-    **IMPORTANT RULES:** 
-    - only major companies which are still active should be displayed
-    - The companies must be **mentioned in the resume** (DO NOT make up company names). 
-    - The job role for each company must be **relevant to what is written in the resume** (DO NOT invent roles that are not aligned with the candidate's experience).
-    - If fewer than 20 companies are in the resume, use only those present and DO NOT add extra ones.
-    - Format the output **STRICTLY as a Python dictionary** with 20 (or fewer) key-value pairs.  
-    - **DO NOT** include extra explanations, notes, or text.
-    - **DO NOT** include any student roles.
-    - **Job Roles:** Must be common industry job roles, **not skills** or generic words.**  
-    - **Companies:** Must be real-world, major companies (no universities, no software products).**
-
-    **OUTPUT FORMAT EXAMPLE (FOLLOW THIS EXACTLY):**
-    {{
-        "Google": "Software Engineer",
-        "Microsoft": "Data Scientist",
-        "OpenAI": "AI Engineer",
-        ...
-    }}
     """
+    # **IMPORTANT RULES:** 
+    # - only major companies which are still active should be displayed
+    # - The companies must be **mentioned in the resume** (DO NOT make up company names). 
+    # - The job role for each company must be **relevant to what is written in the resume** (DO NOT invent roles that are not aligned with the candidate's experience).
+    # - If fewer than 20 companies are in the resume, use only those present and DO NOT add extra ones.
+    # - Format the output **STRICTLY as a Python dictionary** with 20 (or fewer) key-value pairs.  
+    # - **DO NOT** include extra explanations, notes, or text.
+    # - **DO NOT** include any student roles.
+    # - **Job Roles:** Must be common industry job roles, **not skills** or generic words.**  
+    # - **Companies:** Must be real-world, major companies (no universities, no software products).**
+
+    # **OUTPUT FORMAT EXAMPLE (FOLLOW THIS EXACTLY):**
+    # {{
+    #     "Google": "Software Engineer",
+    #     "Microsoft": "Data Scientist",
+    #     "OpenAI": "AI Engineer",
+    #     ...
+    # }}
+    # """
 
     try:
         response_llama = ollama.generate(model="llama3", prompt=prompt)

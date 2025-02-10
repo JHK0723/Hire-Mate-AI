@@ -13,12 +13,12 @@ emails = [row[0] for row in cursor.fetchall()]
 
 conn.close()
 
-for email in emails:
+for i in emails:
 
-    email['from'] = 'ichinisan11092006@gmail.com'
-    email['to'] = f'{email}'
-    email['subject'] = 'Congrats for VIT'
-    email.set_content('Im anonymous chuchu')
+    i['from'] = 'ichinisan11092006@gmail.com'
+    i['to'] = f'{email}'
+    i['subject'] = 'Congrats for VIT'
+    i.set_content('Im anonymous chuchu')
     try:
         with smtplib.SMTP(host = 'smtp.gmail.com', port = 587) as smtp:
             smtp.ehlo()

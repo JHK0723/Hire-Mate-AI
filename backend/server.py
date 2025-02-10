@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from olamAI import mail_body
+# from olamAI import mail_body
 import uvicorn
 
 app = FastAPI()
