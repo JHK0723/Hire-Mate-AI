@@ -64,6 +64,8 @@ def extract_data_from_pdf():
         text = "\n".join([page.extract_text() for page in reader.pages if page.extract_text()])
     except FileNotFoundError:
         return "Error: PDF file not found!"
+    
+    print(text)
 
     # Get extracted data from LLaMA 3
     extracted_data = extract_roles_and_companies(text)

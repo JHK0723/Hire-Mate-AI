@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const fileInput = document.getElementById("file-upload");
     
     const uploadContainer = document.getElementById("file-upload-container");
     const prev = document.getElementById("previewmail-btn");
@@ -52,6 +53,7 @@ function triggerFileUpload() {
         if (fileInput.files.length > 0) {
             const fileName = fileInput.files[0].name;
             document.getElementById("file-upload-container").innerHTML = fileName;
+            // sendFileToBackend(fileInput.files[0]);
         } else {
             document.getElementById("file-upload-container").innerHTML = "No file selected";
         }

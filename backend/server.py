@@ -22,7 +22,7 @@ app.add_middleware(
 # def get_message():
 #     return {"message1": mail_body()}  # Returns JSON response
 
-
+print("Hi")
 
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
@@ -33,7 +33,9 @@ async def upload_file(file: UploadFile = File(...)):
     with open(RESUME_PATH, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
     
-    extract_data_from_pdf()
+    print(f"File {file.filename} uploaded successfully to {RESUME_PATH}")  # Debugging
+    return {"filename": file.filename, "status": "File uploaded successfully"}
+
 
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=8000, reload=True)
