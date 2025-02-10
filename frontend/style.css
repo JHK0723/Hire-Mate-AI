@@ -8,7 +8,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-image: url('https://images.unsplash.com/photo-1497864149936-d3163f0c0f4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+    background-image: url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -24,7 +24,6 @@ body {
     align-items: center;
     text-align: center;
     color: white;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
     background-size: cover;
     background-position: center;
 }
@@ -38,8 +37,9 @@ body {
 .hero p {
     font-family: 'Graduate', sans-serif;
     font-size: 1.2rem;
-    margin-top: px;
-    max-width: 600px;
+    margin-top: 5rem;
+    width: 100%;
+    padding: 0 1rem;
 }
 
 .container {
