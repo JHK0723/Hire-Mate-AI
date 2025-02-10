@@ -1,11 +1,11 @@
-from fastapi import FastAPI, UploadFile, File
+from fastapi import FastAPI, UploadFile, File, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 # from olamAI import mail_body
 import uvicorn
 import shutil
 import os
 from ppdf import extract_data_from_pdf
-from emailer import sendmail
+from mailer import sendmail
 app = FastAPI()
 #hi
 

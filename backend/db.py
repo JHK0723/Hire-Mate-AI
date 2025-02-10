@@ -31,7 +31,7 @@ def append_data(full_data):
     conn.commit()
     conn.close()
     print("Sending mail...")
-    sendmail()
+    # sendmail()
 
 # import sqlite3
 # from mails import get_company_emails
