@@ -8,7 +8,7 @@ import requests
 from db import append_data
 def get_company_emails(company_names):
     
-    print("i called this function")
+    print("Generating emails...")
     API_KEY = "7559925988TqAMEYIXNLsysPUZOha9A7nOYoRHc2Bz"  # Replace with your Skrapp API key
     
     mail_data = {

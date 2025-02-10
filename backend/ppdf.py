@@ -7,6 +7,7 @@ from mails import get_company_emails
 
 
 def extract_roles_and_companies(text):
+    print("Extracting data from resume...")
     """Extracts a dictionary with companies as keys and job roles as values using LLaMA 3, strictly based on the resume."""
 
     prompt = f"""
@@ -47,6 +48,7 @@ Example:- If the resume is of technical, the companies can be Google, Microsoft,
     ...
 }}
 """
+    print("Generating response from Ollama...")
     
     try:
         response_llama = ollama.generate(model="llama3", prompt=prompt)

@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     
-     fetch("http://127.0.0.1:8080/preview/")
+     fetch("http://127.0.0.1:8000/preview/")
         .then(response => response.json())
         .then(data => {
             console.log("Response received:", data);

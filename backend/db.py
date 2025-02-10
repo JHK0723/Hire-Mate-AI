@@ -2,7 +2,6 @@ import sqlite3
 import pandas as pd
 import os
 import subprocess
-from mailer import sendmail
 
 def append_data(full_data):
     if not full_data:
@@ -31,7 +30,6 @@ def append_data(full_data):
 
     conn.commit()
     conn.close()
-    # sendmail()
 
 # import sqlite3
 # from mails import get_company_emails

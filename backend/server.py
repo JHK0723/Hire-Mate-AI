@@ -18,12 +18,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/preview/")
-def get_message():
-    return {"message1": "This is the mail body"}  # Returns JSON response
 
 
-print("Hello")
+
+print("FASTAPI SERVER STARTED")
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 RESUME_PATH = os.path.join(UPLOAD_FOLDER, "resume.pdf")
@@ -37,14 +35,20 @@ async def upload_file(file: UploadFile = File(...)):
     extract_data_from_pdf()
     return {"filename": file.filename, "status": "File uploaded successfully"}
 
+@app.get("/preview/")
+def get_message(background_tasks: BackgroundTasks):
+    print("Previewing email...")
+    return {"message1": sendmail(1)}  # Returns JSON response
+
 @app.post("/send-emails/")
 async def send_emails(background_tasks: BackgroundTasks):
+    print("Sending emails...(fastapi)")
     background_tasks.add_task(sendmail())
     return {"message": "Email sending started in the background"}
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=8080, reload=True)
+    uvicorn.run(app, host="127.0.0.1", port=8000, reload=True)
 
 # from fastapi import FastAPI
 
@@ -56,6 +60,6 @@ if __name__ == "__main__":
 
 # if __name__ == "__main__":
 #     import uvicorn
-#     uvicorn.run(app, host="127.0.0.1", port=8080)
+#     uvicorn.run(app, host="127.0.0.1", port=8000)
 
 
