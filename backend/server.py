@@ -5,7 +5,7 @@ import uvicorn
 import shutil
 import os
 from ppdf import extract_data_from_pdf
-
+from emailer import sendmail
 app = FastAPI()
 #hi
 
@@ -27,6 +27,7 @@ print("Hello")
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 RESUME_PATH = os.path.join(UPLOAD_FOLDER, "resume.pdf")
+
 @app.post("/upload/")
 async def upload_file(file: UploadFile = File(...)):
     print("File receiving...")
@@ -35,6 +36,11 @@ async def upload_file(file: UploadFile = File(...)):
     print("File receieved in backend")
     extract_data_from_pdf()
     return {"filename": file.filename, "status": "File uploaded successfully"}
+
+@app.post("/send-emails/")
+async def send_emails(background_tasks: BackgroundTasks):
+    background_tasks.add_task(sendmail)
+    return {"message": "Email sending started in the background"}
 
 
 if __name__ == "__main__":
