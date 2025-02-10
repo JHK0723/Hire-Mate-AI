@@ -27,7 +27,6 @@ print("Hi")
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 RESUME_PATH = os.path.join(UPLOAD_FOLDER, "resume.pdf")
-
 @app.post("/upload/")
 async def upload_file(file: UploadFile = File(...)):
     with open(RESUME_PATH, "wb") as buffer:
