@@ -3,6 +3,7 @@ import ollama
 import time
 import ast  # Safer than eval()
 from pypdf import PdfReader
+from mails import get_company_emails
 
 
 def extract_roles_and_companies(text):
@@ -14,8 +15,9 @@ You are given the following **resume text**:
 {text}
 
 ### TASK:
-Extract **EXACTLY 20** real-world companies (or fewer if not available) and assign **one relevant job role** to each, based strictly on the resume content.
-
+Extract **EXACTLY 20** real-world companies (or fewer if not available) based on the skills of the user's resume and assign **one relevant job role** to each, based strictly on the resume content.
+THE COMPANIES GENERATED CAN BE ANYTHING RELATED TO THE DOMAIN OF THE RESUME.
+Example:- If the resume is of technical, the companies can be Google, Microsoft, etc.
 ### **STRICT RULES:**
 - **ONLY return a valid Python dictionary (nothing else).**
 - **Each company must be explicitly mentioned in the resume.** (DO NOT make up company names.)
@@ -65,7 +67,6 @@ def extract_data_from_pdf():
     except FileNotFoundError:
         return "Error: PDF file not found!"
     
-    print(text)
 
     # Get extracted data from LLaMA 3
     extracted_data = extract_roles_and_companies(text)
@@ -88,4 +89,6 @@ def extract_data_from_pdf():
 
 
     # mails(extracted_dict)
-    print(extracted_dict)
+    # print(extracted_dict)
+    print(f"Successfully extracted data from PDF: {extracted_dict}")
+    get_company_emails(extracted_dict)

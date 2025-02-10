@@ -22,7 +22,7 @@ app.add_middleware(
 # def get_message():
 #     return {"message1": mail_body()}  # Returns JSON response
 
-print("Hi")
+
 
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
@@ -32,7 +32,7 @@ async def upload_file(file: UploadFile = File(...)):
     with open(RESUME_PATH, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
     
-    print(f"File {file.filename} uploaded successfully to {RESUME_PATH}")  # Debugging
+    extract_data_from_pdf()
     return {"filename": file.filename, "status": "File uploaded successfully"}
 
 

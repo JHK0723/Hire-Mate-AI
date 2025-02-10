@@ -53,7 +53,6 @@ function triggerFileUpload() {
         if (fileInput.files.length > 0) {
             const fileName = fileInput.files[0].name;
             document.getElementById("file-upload-container").innerHTML = fileName;
-            // sendFileToBackend(fileInput.files[0]);
         } else {
             document.getElementById("file-upload-container").innerHTML = "No file selected";
         }
