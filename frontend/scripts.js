@@ -40,7 +40,6 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             uploadContainer.innerHTML = "No file selected";
         }
-        updateButtonColors();
     });
     
 });
