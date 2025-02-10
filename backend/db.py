@@ -2,6 +2,7 @@ import sqlite3
 import pandas as pd
 import os
 import subprocess
+from mailer import sendmail
 
 def append_data(full_data):
 
@@ -10,7 +11,7 @@ def append_data(full_data):
     conn = sqlite3.connect("backend/data.db")
     cursor = conn.cursor()
 
-    # cursor.execute("DROP TABLE IF EXISTS employees")
+    cursor.execute("DROP TABLE IF EXISTS employees")
 
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS employees (
@@ -26,9 +27,11 @@ def append_data(full_data):
 
     # Commit & close
     subprocess.run(["python", "viewdb.py"])
-    cursor.execute("DELETE FROM employees")
+
     conn.commit()
     conn.close()
+    print("Sending mail...")
+    sendmail()
 
 # import sqlite3
 # from mails import get_company_emails
