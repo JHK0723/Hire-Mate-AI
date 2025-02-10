@@ -32,6 +32,11 @@ body {
     font-family: 'Graduate', sans-serif;
     font-size: 3rem;
     margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.3); /* Increased transparency */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow effect */
+    display: inline-block; /* Ensure the box fits the content */
 }
 
 .hero p {
@@ -69,6 +74,7 @@ body {
 button {
     padding: 0.75rem;
     font-size: 1rem;
+    font-family: 'Graduate', sans-serif; /* Add this line */
     border: none;
     border-radius: 4px;
     background-color: rgba(255, 255, 255, 0.2);
