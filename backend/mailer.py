@@ -5,13 +5,15 @@ import ollama
 
 def sendmail():
     # Connect to the database
-    conn = sqlite3.connect("backend/data.db")  # Ensure correct path
+    print("Sending mail...")
+    conn = sqlite3.connect("./data.db")  # Ensure correct path
     cursor = conn.cursor()
     
 
     cursor.execute("SELECT * FROM employees;")  
     rows = cursor.fetchall()
-
+    print("This function has come")
+    return 
     conn.close()
 
     for row in rows:
@@ -22,7 +24,14 @@ def sendmail():
         print(f"Sending email to {mail_id} for {job_role} at {company}")
 
 
-        prompt = f"Generate Mail body for {company} for the role of {job_role}"
+        prompt = (
+    f"Write a professional job application email for the role of {job_role} at {company}. "
+    "Address the recipient as 'Dear Hiring Manager' if their name is unknown. "
+    "The email should express enthusiasm for the role, highlight relevant skills and experience, "
+    "and end with a polite call to action. Avoid generic closings like 'Yours sincerely' or '[Your name]'. "
+    "Keep it concise, professional, and engaging."
+)
+
 
         response_llama = ollama.generate(model="llama2", prompt=prompt)
         email_body = response_llama.get("response", "").strip()

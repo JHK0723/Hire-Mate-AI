@@ -1,18 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const fileInput = document.getElementById("file-upload");
-    
-    const uploadContainer = document.getElementById("file-upload-container");
-    const prev = document.getElementById("previewmail-btn");
-    const generate = document.getElementById("generatemail-btn");
-    const send = document.getElementById("sendmail-btn");
-
-    // function updateButtonColors() {
-    //     const color = fileInput.files.length > 0 ? "#0d6efd" : "red";
-    //     [prev, generate, send].forEach(button => {
-    //         button.addEventListener("mouseover", () => button.style.backgroundColor = color);
-    //         button.addEventListener("mouseout", () => button.style.backgroundColor = "");
-    //     });
-    // }
+    const submitButton = document.getElementById("file-upload-container");
 
     function sendFileToBackend(file) {
         const formData = new FormData();
@@ -32,46 +20,45 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    function triggerFileUpload() {
+        fileInput.click();
+    }
+
     fileInput.addEventListener("change", function () {
-        if (this.files.length > 0) {
-            const fileName = this.files[0].name;
-            uploadContainer.innerHTML = fileName;
-            sendFileToBackend(this.files[0]);
+        if (fileInput.files.length > 0) {
+            const fileName = fileInput.files[0].name;
+            submitButton.innerHTML = fileName;
         } else {
-            uploadContainer.innerHTML = "No file selected";
+            submitButton.innerHTML = "No file selected";
+        }
+    });
+
+    function submitbutton() {
+        if (fileInput.files.length > 0) {
+            sendFileToBackend(fileInput.files[0]);
+        } else {
+            alert("Please upload a file before submitting.");
+        }
+    }
+
+    // Assign the functions to global scope for button clicks
+    window.triggerFileUpload = triggerFileUpload;
+    window.submitbutton = submitbutton;
+    document.getElementById("send-email-btn").addEventListener("click", async () => {
+        try {
+            const response = await fetch("http://127.0.0.1:8080/send-emails/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+
+            const data = await response.json();
+            console.log("Email sending bg") // Show confirmation message
+        } catch (error) {
+            console.error("Error sending email:", error);
+            alert("Failed to send email.");
         }
     });
     
 });
-function triggerFileUpload() {
-        const fileInput = document.getElementById("file-upload");
-        fileInput.click();
-        console.log(document.getElementById("file-upload"));
-        fileInput.addEventListener("change", function () {
-            if (fileInput.files.length > 0) {
-                const fileName = fileInput.files[0].name;
-                document.getElementById("file-upload-container").innerHTML = fileName;
-            } else {
-                document.getElementById("file-upload-container").innerHTML = "No file selected";
-            }
-        });
-    };
-
-    // function generatemail() {
-    // console.log("Button clicked, showing loading screen...");
-
-    // // Show loading screen
-    // document.getElementById("loading-screen").style.display = "flex";
-
-    // fetch("http://127.0.0.1:8000/")
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         console.log("Response received:", data);
-    //         document.getElementById("generatemail").innerHTML = <pre>${data.message1}</pre>;
-    //         document.getElementById("loading-screen").style.display = "none";
-    //     })
-    //     .catch(error => {
-    //         console.error("Error fetching data:", error);
-    //         document.getElementById("data").innerText = "Failed to load data!";
-    //         document.getElementById("loading-screen").style.display = "none"; // Hide loader on error
-    //     });

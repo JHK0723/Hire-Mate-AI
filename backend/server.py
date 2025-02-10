@@ -1,11 +1,11 @@
-from fastapi import FastAPI, UploadFile, File
+from fastapi import FastAPI, UploadFile, File, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 # from olamAI import mail_body
 import uvicorn
 import shutil
 import os
 from ppdf import extract_data_from_pdf
-from emailer import sendmail
+from mailer import sendmail
 app = FastAPI()
 #hi
 
@@ -39,7 +39,7 @@ async def upload_file(file: UploadFile = File(...)):
 
 @app.post("/send-emails/")
 async def send_emails(background_tasks: BackgroundTasks):
-    background_tasks.add_task(sendmail)
+    background_tasks.add_task(sendmail())
     return {"message": "Email sending started in the background"}
 
 

@@ -5,9 +5,10 @@ import subprocess
 from mailer import sendmail
 
 def append_data(full_data):
-
+    if not full_data:
+        print("No data to append.")
+        return
     df = pd.DataFrame(full_data)
-    os.makedirs("backend", exist_ok=True)
     conn = sqlite3.connect("./data.db")
     cursor = conn.cursor()
 
@@ -30,8 +31,7 @@ def append_data(full_data):
 
     conn.commit()
     conn.close()
-    print("Sending mail...")
-    sendmail()
+    # sendmail()
 
 # import sqlite3
 # from mails import get_company_emails
