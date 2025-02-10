@@ -18,7 +18,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/preview")
+@app.get("/preview/")
 def get_message():
     return {"message1": "This is the mail body"}  # Returns JSON response
 
