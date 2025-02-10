@@ -5,14 +5,15 @@
 # def get_data(data_dict):
 #     data_dict = data_dict
 import requests
+from db import append_data
 def get_company_emails(company_names):
     
     print("i called this function")
-    API_KEY = "380774089YZYxobMC4wwJGwircJJaxICQg6BZEOx2Z"  # Replace with your Skrapp API key
+    API_KEY = "7559925988TqAMEYIXNLsysPUZOha9A7nOYoRHc2Bz"  # Replace with your Skrapp API key
     
     mail_data = {
         "Email": [],
-        "Job Role": [],
+        "Job_Role": [],
         "Company": []
     }
     
@@ -38,13 +39,14 @@ def get_company_emails(company_names):
 
                 for job in job_roles:  # Assign all job roles for this company
                     mail_data["Email"].append(email)
-                    mail_data["Job Role"].append(job)
+                    mail_data["Job_Role"].append(job)
                     mail_data["Company"].append(company)
 
         else:
             # return f"Error {response.status_code}: {response.text}"
             print(f"Error {response.status_code}: {response.text}")
     print(mail_data)
+    append_data(mail_data)
 
 # Example usage
 # company_names = ["microsoft"]  # Replace with any company name

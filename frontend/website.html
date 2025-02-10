@@ -27,9 +27,9 @@
     <div class="container">
         <div class="glass-panel">
             <div class="button-container">
-                <input type="file" id="file-upload" accept=".pdf,.docx,.xlsx" style="display: none;">
-                <button class="enlarge" onclick="triggerFileUpload()">Upload Resume</button>
-                <a href='preview.html' class="button-container"><button>Preview</button></a>
+                <input type="file" id="file-upload" accept=".pdf" style="display: none;">
+                <button class="enlarge" onclick="triggerFileUpload()" id="file-upload-container">Upload Resume</button>
+                <a href='preview.html' target="_blank" class="button-container"><button>Preview</button></a>
                 <button onclick="sendmail()">Send Mail</button>
             </div>
         </div>
