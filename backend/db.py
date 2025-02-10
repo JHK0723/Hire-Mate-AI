@@ -4,7 +4,7 @@ from mails import get_company_emails
 import os
 
 
-full_data = {'name' : ['Jaya','Harish','Sullu'],'company':['Apple','Samsung','linux']}
+full_data = get_company_emails()
 
 df = pd.DataFrame(full_data)
 os.makedirs("backend", exist_ok=True)

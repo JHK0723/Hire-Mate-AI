@@ -1,7 +1,10 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 # from olamAI import mail_body
 import uvicorn
+import shutil
+import os
+from ppdf import extract_data_from_pdf
 
 app = FastAPI()
 #hi
@@ -15,9 +18,22 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/")
-def get_message():
-    return {"message1": mail_body()}  # Returns JSON response
+# @app.get("/")
+# def get_message():
+#     return {"message1": mail_body()}  # Returns JSON response
+
+
+
+UPLOAD_FOLDER = "uploads"
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+RESUME_PATH = os.path.join(UPLOAD_FOLDER, "resume.pdf")
+
+@app.post("/upload/")
+async def upload_file(file: UploadFile = File(...)):
+    with open(RESUME_PATH, "wb") as buffer:
+        shutil.copyfileobj(file.file, buffer)
+    
+    extract_data_from_pdf()
 
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=8000, reload=True)

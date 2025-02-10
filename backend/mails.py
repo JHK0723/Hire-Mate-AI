@@ -1,6 +1,9 @@
 import requests
 
 API_KEY = "380774089YZYxobMC4wwJGwircJJaxICQg6BZEOx2Z"  # Replace with your Skrapp API key
+
+def get_data(data_dict):
+    data_dict = data_dict
 def get_company_emails(company_names, size=1):
 
     """Fetch professional emails from a company using Skrapp API"""
@@ -24,9 +27,9 @@ def get_company_emails(company_names, size=1):
             if not results:
                 return f"No emails found for {name}."
 
-            mail_data['Email']= [emp.get('email', 'None') for emp in results]
             mail_data['Name']= [emp.get('name', 'None') for emp in results]
             mail_data['Company'].append(name)
+            mail_data['Email']= [emp.get('email', 'None') for emp in results]
 
         else:
             return f"Error {response.status_code}: {response.text}"
