@@ -13,7 +13,7 @@ def get_company_emails(company_names):
     
     mail_data = {
         "Email": [],
-        "Job Role": [],
+        "Job_Role": [],
         "Company": []
     }
     
@@ -39,7 +39,7 @@ def get_company_emails(company_names):
 
                 for job in job_roles:  # Assign all job roles for this company
                     mail_data["Email"].append(email)
-                    mail_data["Job Role"].append(job)
+                    mail_data["Job_Role"].append(job)
                     mail_data["Company"].append(company)
 
         else:

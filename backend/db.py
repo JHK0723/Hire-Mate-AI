@@ -9,12 +9,13 @@ def append_data(full_data):
     conn = sqlite3.connect("backend/data.db")
     cursor = conn.cursor()
 
+    cursor.execute("DROP TABLE IF EXISTS employees")
 
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS employees (
             ID INTEGER PRIMARY KEY AUTOINCREMENT,
             Company TEXT,
-            Job Role TEXT,
+            Job_Role TEXT,
             Email TEXT
         )
     """)
