@@ -1,6 +1,9 @@
 import requests
 
 API_KEY = "380774089YZYxobMC4wwJGwircJJaxICQg6BZEOx2Z"  # Replace with your Skrapp API key
+
+def get_data(data_dict):
+    data_dict = data_dict
 def get_company_emails(company_names, size=1):
 
     """Fetch professional emails from a company using Skrapp API"""

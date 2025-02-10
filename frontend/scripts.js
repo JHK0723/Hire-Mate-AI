@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const fileInput = document.getElementById("file-upload");
+    
     const uploadContainer = document.getElementById("file-upload-container");
     const prev = document.getElementById("previewmail-btn");
     const generate = document.getElementById("generatemail-btn");
@@ -46,5 +46,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // ✅ Moved this function outside to be globally accessible
 function triggerFileUpload() {
-    document.getElementById("file-upload").click();
+    const fileInput = document.getElementById("file-upload");
+    fileInput.click();
+    fileInput.addEventListener("change", function () {
+        if (fileInput.files.length > 0) {
+            const fileName = fileInput.files[0].name;
+            document.getElementById("file-upload-container").innerHTML = fileName;
+        } else {
+            document.getElementById("file-upload-container").innerHTML = "No file selected";
+        }
+    });
 }
+

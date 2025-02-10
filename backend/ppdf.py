@@ -4,7 +4,6 @@ import time
 import ast  # Safer than eval()
 from pypdf import PdfReader
 
-PDF_PATH = r"./resume-computer-engineering.pdf"
 
 def extract_roles_and_companies(text):
     """Extracts a dictionary with companies as keys and job roles as values using LLaMA 3, strictly based on the resume."""
@@ -58,8 +57,7 @@ Extract **EXACTLY 20** real-world companies (or fewer if not available) and assi
 def extract_data_from_pdf():
     """Reads text from a PDF, sends it to LLaMA 3 for processing, and extracts a dictionary with companies as keys and job roles as values."""
 
-    start_time = time.time()
-
+    PDF_PATH = r"./uploads/resume.pdf"
     # Extract text from PDF
     try:
         reader = PdfReader(PDF_PATH)
@@ -85,11 +83,7 @@ def extract_data_from_pdf():
     else:
         extracted_dict = {}
 
-    end_time = time.time()
-    print(f"⚡ Execution Time: {end_time - start_time:.2f} seconds")
-    print(f"✅ Extracted Data ({len(extracted_dict)} key-value pairs): {extracted_dict}")
 
-    return extracted_dict
 
-# Run the script
-extract_data_from_pdf()
+    # mails(extracted_dict)
+    print(extracted_dict)

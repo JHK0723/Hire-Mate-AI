@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 import shutil
 import os
+from ppdf import extract_data_from_pdf
 
 app = FastAPI()
 #hi
@@ -32,7 +33,7 @@ async def upload_file(file: UploadFile = File(...)):
     with open(RESUME_PATH, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
     
-    return {"filename": "resume.pdf", "message": "Resume uploaded successfully"}
+    extract_data_from_pdf()
 
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=8000, reload=True)
