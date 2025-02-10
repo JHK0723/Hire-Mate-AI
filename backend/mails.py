@@ -24,9 +24,9 @@ def get_company_emails(company_names, size=1):
             if not results:
                 return f"No emails found for {name}."
 
-            mail_data['Email']= [emp.get('email', 'None') for emp in results]
             mail_data['Name']= [emp.get('name', 'None') for emp in results]
             mail_data['Company'].append(name)
+            mail_data['Email']= [emp.get('email', 'None') for emp in results]
 
         else:
             return f"Error {response.status_code}: {response.text}"
