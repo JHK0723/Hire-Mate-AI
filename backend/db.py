@@ -8,7 +8,7 @@ def append_data(full_data):
 
     df = pd.DataFrame(full_data)
     os.makedirs("backend", exist_ok=True)
-    conn = sqlite3.connect("backend/data.db")
+    conn = sqlite3.connect("./data.db")
     cursor = conn.cursor()
 
     cursor.execute("DROP TABLE IF EXISTS employees")

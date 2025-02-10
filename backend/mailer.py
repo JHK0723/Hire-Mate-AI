@@ -48,15 +48,19 @@ def sendmail():
             )
 
         try:
-            with smtplib.SMTP("smtp.gmail.com", 465) as smtp:
+            with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
                 smtp.ehlo()
-                smtp.starttls()
-                smtp.login("thebruzz0000@gmail.com", "rblp vxrt lauq psct")  
-                smtp.send_message(email)
-                print(f"Email sent successfully to {mail_id}")
+                smtp.login("thebruzz0000@gmail.com", "rblp vxrt lauq psct")
+                response = smtp.send_message(email)
+                print(f"📩 Email sent successfully to {mail_id}, SMTP Response: {response}")
 
+        except smtplib.SMTPRecipientsRefused as e:
+            print(f"❌ Recipient refused: {e}")
         except smtplib.SMTPAuthenticationError as e:
-            print(f"SMTP Authentication Error: {e}")
+            print(f"❌ SMTP Authentication Error: {e}")
+        except smtplib.SMTPException as e:
+            print(f"❌ SMTP Exception: {e}")
         except Exception as e:
-            print(f"Error sending email to {mail_id}: {e}")
+            print(f"❌ Unknown Error: {e}")
+
 
