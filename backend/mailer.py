@@ -7,7 +7,7 @@ def sendmail():
     # Connect to the database
     conn = sqlite3.connect("backend/data.db")  # Ensure correct path
     cursor = conn.cursor()
-
+    
 
     cursor.execute("SELECT * FROM employees;")  
     rows = cursor.fetchall()
