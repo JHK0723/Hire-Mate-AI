@@ -22,7 +22,7 @@ def sendmail():
         print(f"Sending email to {mail_id} for {job_role} at {company}")
 
 
-        prompt = f"Mail body for {company} for the role of {job_role}"
+        prompt = f"Generate Mail body for {company} for the role of {job_role}"
 
         response_llama = ollama.generate(model="llama2", prompt=prompt)
         email_body = response_llama.get("response", "").strip()
@@ -48,7 +48,7 @@ def sendmail():
             )
 
         try:
-            with smtplib.SMTP("smtp.gmail.com", 587) as smtp:
+            with smtplib.SMTP("smtp.gmail.com", 465) as smtp:
                 smtp.ehlo()
                 smtp.starttls()
                 smtp.login("thebruzz0000@gmail.com", "rblp vxrt lauq psct")  
