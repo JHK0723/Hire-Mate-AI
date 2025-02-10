@@ -4,7 +4,7 @@ import time
 import ast  # Safer than eval()
 from pypdf import PdfReader
 
-PDF_PATH = r"C:\projects\Hire-Mate-AI\backend\resume-computer-engineering.pdf"
+PDF_PATH = r"./resume-computer-engineering.pdf"
 
 def extract_roles_and_companies(text):
     """Extracts a dictionary with companies as keys and job roles as values using LLaMA 3, strictly based on the resume."""
