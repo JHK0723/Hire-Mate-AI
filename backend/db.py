@@ -1,31 +1,30 @@
 import sqlite3
 import pandas as pd
-from mails import get_company_emails
 import os
 
+def append_data(full_data):
 
-full_data = get_company_emails()
-
-df = pd.DataFrame(full_data)
-os.makedirs("backend", exist_ok=True)
-conn = sqlite3.connect("backend/data.db")
-cursor = conn.cursor()
+    df = pd.DataFrame(full_data)
+    os.makedirs("backend", exist_ok=True)
+    conn = sqlite3.connect("backend/data.db")
+    cursor = conn.cursor()
 
 
-cursor.execute("""
-    CREATE TABLE IF NOT EXISTS employees (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT,
-        company TEXT
-    )
-""")
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS employees (
+            ID INTEGER PRIMARY KEY AUTOINCREMENT,
+            Company TEXT,
+            Job Role TEXT,
+            Email TEXT
+        )
+    """)
 
-# Insert data into SQLite
-df.to_sql("employees", conn, if_exists="append", index=False)
+    # Insert data into SQLite
+    df.to_sql("employees", conn, if_exists="append", index=False)
 
-# Commit & close
-conn.commit()
-conn.close()
+    # Commit & close
+    conn.commit()
+    conn.close()
 
 # import sqlite3
 # from mails import get_company_emails
