@@ -67,17 +67,7 @@ button:hover{
 .gradient-text{
         background: linear-gradient(45deg, #36151E, #593F62)
 }
-.gradient-text::after {
-    content:'';
-    position: absolute;
-    bottom: 625px; /* Adjust the position as needed */
-    left: 0;
-    width: 100%;
-    height: 12px; /* Adjust the height as needed */
-    background: linear-gradient(90deg, #36151E,#593F62 );
-    box-shadow: 0 0 10px #7B6D8D;
-    border-radius: 0.5px; /* Optional: Adjust the border radius as needed */
-}
+
 .center-text {
     display: flex;
     align-items: center;
