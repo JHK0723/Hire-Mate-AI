@@ -44,4 +44,21 @@ document.addEventListener("DOMContentLoaded", function () {
     // Assign the functions to global scope for button clicks
     window.triggerFileUpload = triggerFileUpload;
     window.submitbutton = submitbutton;
+    document.getElementById("send-email-btn").addEventListener("click", async () => {
+        try {
+            const response = await fetch("http://127.0.0.1:8080/send-emails/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+
+            const data = await response.json();
+            console.log("Email sending bg") // Show confirmation message
+        } catch (error) {
+            console.error("Error sending email:", error);
+            alert("Failed to send email.");
+        }
+    });
+    
 });
