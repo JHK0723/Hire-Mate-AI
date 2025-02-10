@@ -23,15 +23,16 @@ def get_message():
     return {"message1": "This is the mail body"}  # Returns JSON response
 
 
-
+print("Hello")
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 RESUME_PATH = os.path.join(UPLOAD_FOLDER, "resume.pdf")
 @app.post("/upload/")
 async def upload_file(file: UploadFile = File(...)):
+    print("File receiving...")
     with open(RESUME_PATH, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
-    
+    print("File receieved in backend")
     extract_data_from_pdf()
     return {"filename": file.filename, "status": "File uploaded successfully"}
 
