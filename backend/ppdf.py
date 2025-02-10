@@ -15,7 +15,7 @@ You are given the following **resume text**:
 {text}
 
 ### TASK:
-Extract **MINIMUM 10** real-world companies (or fewer if not available) based on the skills of the user's resume and assign **one relevant job role** to each, based strictly on the resume content.
+Extract **EXACTLY 20** real-world companies (or fewer if not available) based on the skills of the user's resume and assign **one relevant job role** to each, based strictly on the resume content.
 THE COMPANIES GENERATED CAN BE ANYTHING RELATED TO THE DOMAIN OF THE RESUME.
 Example:- If the resume is of technical, the companies can be Google, Microsoft, etc.
 ### **STRICT RULES:**

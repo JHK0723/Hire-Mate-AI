@@ -1,6 +1,7 @@
 import sqlite3
 import pandas as pd
 import os
+import subprocess
 
 def append_data(full_data):
 
@@ -9,7 +10,7 @@ def append_data(full_data):
     conn = sqlite3.connect("backend/data.db")
     cursor = conn.cursor()
 
-    cursor.execute("DROP TABLE IF EXISTS employees")
+    # cursor.execute("DROP TABLE IF EXISTS employees")
 
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS employees (
@@ -24,6 +25,8 @@ def append_data(full_data):
     df.to_sql("employees", conn, if_exists="append", index=False)
 
     # Commit & close
+    subprocess.run(["python", "viewdb.py"])
+    cursor.execute("DELETE FROM employees")
     conn.commit()
     conn.close()
 
