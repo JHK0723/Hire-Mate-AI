@@ -9,7 +9,7 @@ from db import append_data
 def get_company_emails(company_names):
     
     print("Generating emails...")
-    API_KEY = "7559925988TqAMEYIXNLsysPUZOha9A7nOYoRHc2Bz"  # Replace with your Skrapp API key
+    API_KEY = "20856726936cvKIi8tPTyr59OdObALWxgR9qJGFuI1"  # Replace with your Skrapp API key
     
     mail_data = {
         "Email": [],
