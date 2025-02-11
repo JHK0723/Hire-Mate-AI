@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const formData = new FormData();
         formData.append("file", file);
 
-        fetch("http://127.0.0.1:8000/upload/", {
+        fetch("http://127.0.0.1:8080/upload/", {
             method: "POST",
             body: formData
         })

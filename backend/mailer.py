@@ -25,8 +25,8 @@ def sendmail(sample = 0):
     f"Write a professional job application email for the role of {job_role} at {company}. "
     "Address the recipient as 'Dear Hiring Manager' if their name is unknown. "
     "The email should express enthusiasm for the role, highlight relevant skills and experience, "
-    "and end with a polite call to action. **DO NOT ADD** generic closings like 'Yours sincerely' or '[Your name]'. "
-    "Keep it concise, professional, and engaging."
+    "and end with a polite call to action. DO NOT include any closing phrases like 'Yours sincerely', "
+    "'Best regards', or a placeholder for the sender's name. The email must conclude naturally after the final paragraph."
 )
 
 

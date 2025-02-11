@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
         formData.append("file", file);
         console.log("Sending file to backend:", file.name);
 
-        fetch("http://127.0.0.1:8000/upload/", {
+        fetch("http://127.0.0.1:8080/upload/", {
             method: "POST",
             body: formData
         })
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
     window.submitbutton = submitbutton;
     document.getElementById("send-email-btn").addEventListener("click", async () => {
         try {
-            const response = await fetch("http://127.0.0.1:8000/send-emails/", {
+            const response = await fetch("http://127.0.0.1:8080/send-emails/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

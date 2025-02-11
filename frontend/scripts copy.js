@@ -15,7 +15,7 @@ function sendFileToBackend(file) {
     const formData = new FormData();
     formData.append("file", file);
 
-    fetch("http://127.0.0.1:8000/", {
+    fetch("http://127.0.0.1:8080/", {
         method: "POST",
         body: formData
     })
@@ -40,7 +40,7 @@ function generatemail() {
     // Show loading screen
     document.getElementById("loading-screen").style.display = "flex";
 
-    fetch("http://127.0.0.1:8000/")
+    fetch("http://127.0.0.1:8080/")
         .then(response => response.json())
         .then(data => {
             console.log("Response received:", data);

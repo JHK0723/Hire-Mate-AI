@@ -1,10 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
     
-     fetch("http://127.0.0.1:8000/preview/")
+     fetch("http://127.0.0.1:8080/preview/")
         .then(response => response.json())
         .then(data => {
             console.log("Response received:", data);
             document.getElementById("previewmail").innerHTML = `<pre>${data.message1}</pre>`;
+            document.getElementById("previewdatabase").innerHTML = `<pre>${data.message2}</pre>`;
         })
         .catch(error => {
             console.error("Error fetching data:", error);
