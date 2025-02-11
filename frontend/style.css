@@ -169,7 +169,7 @@ button:hover {
 
 
 .dbclass {
-    margin-left: 400px;
+    justify-items: center;
     /* Adjust the value as needed */
 }
 .mailclass {
