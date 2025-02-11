@@ -66,17 +66,16 @@ pip install -r requirements.txt
 ```
 ## ⚡ How It Works
 ### 1.User Uploads Resume:
-
 #### The user uploads a resume via the frontend (HTML form).
 #### The backend uses PyPDF to extract the text from the uploaded PDF.
+
 ### 2.Text Parsing:
-
 #### The extracted text is parsed using Llama3 to suggest relevant job roles and companies.
+
 ### 3.Company Email Fetching:
-
 #### The backend uses Skrapp.io API to fetch contact emails for the suggested companies.
-### 4.Email Sending:
 
+### 4.Email Sending:
 #### The backend uses smtplib to send professional job application emails to the fetched emails.
 
 ## 🛠️ Dependencies
@@ -112,8 +111,11 @@ uvicorn app:app --reload --port 8080
 #### 2.Open the frontend folder and open the index.html file in your browser. The frontend will interact with the backend via API calls.
 
 ### 🌟 Acknowledgments
+
 #### Thanks to Skrapp.io for their email fetching API.
+
 #### Big shoutout to FastAPI for making API development fast and easy.
+
 #### Thanks to PyPDF2 for PDF text extraction.
 
 ## We hope you enjoy using HIREMATE-AI! Feel free to open an issue if you find any bugs or have suggestions! 🚀
