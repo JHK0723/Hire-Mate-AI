@@ -26,7 +26,7 @@ body {
     color: white;
     background-size: cover;
     background-position: center;
-
+    
 }
 
 .hero h1 {
@@ -34,14 +34,10 @@ body {
     font-size: 3rem;
     margin-bottom: 1rem;
     padding: 1rem;
-    background-color: rgba(0, 0, 0, 0.3);
-    /* Increased transparency */
-    border-radius: 8px;
-    /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    /* Shadow effect */
-    display: inline-block;
-    /* Ensure the box fits the content */
+    background-color: rgba(0, 0, 0, 0.3); /* Increased transparency */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Shadow effect */
+    display: inline-block; /* Ensure the box fits the content */
 }
 
 .hero p {
@@ -50,7 +46,7 @@ body {
     margin-top: 5rem;
     width: 100%;
     padding: 0 1rem;
-    color: black;
+    color:black;
 }
 
 .container {
@@ -80,8 +76,7 @@ body {
 button {
     padding: 0.75rem;
     font-size: 1rem;
-    font-family: 'Graduate', sans-serif;
-    /* Add this line */
+    font-family: 'Graduate', sans-serif; /* Add this line */
     border: none;
     border-radius: 4px;
     background-color: rgba(255, 255, 255, 0.3);
@@ -111,7 +106,7 @@ button:active {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0,0,0,0.4);
 }
 
 .modal-content {
@@ -159,17 +154,14 @@ button:active {
         font-size: 1rem;
     }
 }
-
-@keyframes enlarge {
-    0% {
+@keyframes enlarge{
+    0%{
         transform: scale(1);
     }
-
-    100% {
+    100%{
         transform: scale(1.1);
     }
 }
-
 button:hover {
     background-color: rgba(255, 255, 255, 0.3);
     animation: enlarge 0.1s forwards;
@@ -180,7 +172,6 @@ button:hover {
     margin-left: 400px;
     /* Adjust the value as needed */
 }
-
 .mailclass {
     display: flex;
     justify-content: center;
@@ -199,28 +190,22 @@ button:hover {
     box-sizing: border-box;
     /* Ensure padding doesn't increase width */
 }
-
 .email-container {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
     border-radius: 8px;
 }
-
-.email-header,
-.email-footer {
+.email-header, .email-footer {
     text-align: center;
     margin-bottom: 20px;
 }
-
 .email-body {
     line-height: 1.6;
 }
-
 .email-body p {
     margin-bottom: 1rem;
 }
-
 #loading-screen {
     position: fixed;
     top: 0;
@@ -249,23 +234,14 @@ button:hover {
 
 /* Keyframes for spinning effect */
 @keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
-
 .hero img {
     position: absolute;
     top: 0;
     right: 0;
-    width: 10vh;
-    /* Adjust the width as needed */
-    height: auto;
-    /* Maintain aspect ratio */
-    margin: 2vh;
-    /* Add some margin if needed */
+    width: 10vh; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin: 2vh; /* Add some margin if needed */
 }
