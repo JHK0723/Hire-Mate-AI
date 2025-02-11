@@ -48,7 +48,10 @@ async def send_emails(background_tasks: BackgroundTasks):
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=8080, reload=True)
+    try:
+        uvicorn.run(app, host="127.0.0.1", port=8080, reload=True)
+    except KeyboardInterrupt:
+        print("\n🛑 Server stopped gracefully. Goodbye! 👋")
 
 # from fastapi import FastAPI
 
