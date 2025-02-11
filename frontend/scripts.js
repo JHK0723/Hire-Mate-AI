@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const send = document.getElementById("sendmail-btn");
 
     function sendFileToBackend(file) {
+        console.log("Button clicked, showing loading screen...");
         const formData = new FormData();
         formData.append("file", file);
         console.log("Sending file to backend:", file.name);
