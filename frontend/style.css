@@ -26,6 +26,7 @@ body {
     color: white;
     background-size: cover;
     background-position: center;
+    
 }
 
 .hero h1 {
@@ -35,7 +36,7 @@ body {
     padding: 1rem;
     background-color: rgba(0, 0, 0, 0.3); /* Increased transparency */
     border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Shadow effect */
     display: inline-block; /* Ensure the box fits the content */
 }
 
@@ -45,6 +46,7 @@ body {
     margin-top: 5rem;
     width: 100%;
     padding: 0 1rem;
+    color:black;
 }
 
 .container {
@@ -77,9 +79,10 @@ button {
     font-family: 'Graduate', sans-serif; /* Add this line */
     border: none;
     border-radius: 4px;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: white;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: black;
     cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
@@ -233,4 +236,12 @@ button:hover {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+.hero img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10vh; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin: 2vh; /* Add some margin if needed */
 }
