@@ -7,9 +7,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function sendFileToBackend(file) {
         console.log("Button clicked, showing loading screen...");
+        document.getElementById("loading-screen").style.display = "flex";
+
         const formData = new FormData();
         formData.append("file", file);
         console.log("Sending file to backend:", file.name);
+        
 
         fetch("http://127.0.0.1:8080/upload/", {
             method: "POST",
@@ -18,9 +21,11 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.json())
         .then(data => {
             console.log("File uploaded successfully:", data);
+           
         })
         .catch(error => {
             console.error("Error uploading file:", error);
+           
         });
     }
 
