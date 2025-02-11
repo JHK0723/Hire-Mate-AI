@@ -69,6 +69,5 @@ def sendmail(sample = 0):
             print(f"❌ SMTP Exception: {e}")
         except Exception as e:
             print(f"❌ Unknown Error: {e}")
-        return 
 
 
