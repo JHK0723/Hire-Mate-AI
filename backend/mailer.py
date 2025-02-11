@@ -33,8 +33,7 @@ def sendmail(sample = 0):
         response_llama = ollama.generate(model="llama2", prompt=prompt)
         email_body = response_llama.get("response", "").strip()
         print(f"Sending email to {mail_id} for {job_role} at {company}")
-        if sample==1:
-            return email_body
+
         if not email_body:
             print(f"Failed to generate email body for {mail_id}")
             continue  # Skip sending email if no response
