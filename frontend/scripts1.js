@@ -4,8 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(response => response.json())
         .then(data => {
             console.log("Response received:", data);
-            document.getElementById("previewmail").innerHTML = `<pre>${data.message1}</pre>`;
-            document.getElementById("previewdatabase").innerHTML = `<pre>${data.message2}</pre>`;
+            document.getElementById("previewdatabase").innerHTML = `<pre>${data.message1}</pre>`;
         })
         .catch(error => {
             console.error("Error fetching data:", error);
