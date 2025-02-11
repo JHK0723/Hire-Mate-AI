@@ -187,3 +187,19 @@ button:hover {
     box-sizing: border-box;
     /* Ensure padding doesn't increase width */
 }
+.email-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+}
+.email-header, .email-footer {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.email-body {
+    line-height: 1.6;
+}
+.email-body p {
+    margin-bottom: 1rem;
+}
