@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 import shutil
 import os
+
 from ppdf import extract_data_from_pdf
 from mailer import sendmail
 from previewdb import  view_data
@@ -46,12 +47,14 @@ async def send_emails(background_tasks: BackgroundTasks):
     background_tasks.add_task(sendmail)
     return {"message": "Email sending started in the background"}
 
+@app.on_event("shutdown")
+def shutdown_event():
+    print("\n🛑 Server stopped gracefully. Goodbye! 👋\n")
 
 if __name__ == "__main__":
-    try:
-        uvicorn.run(app, host="127.0.0.1", port=8080, reload=True)
-    except KeyboardInterrupt:
-        print("\n🛑 Server stopped gracefully. Goodbye! 👋")
+        
+    uvicorn.run(app, host="127.0.0.1", port=8080, reload=True)
+
 
 # from fastapi import FastAPI
 
