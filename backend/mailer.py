@@ -8,7 +8,7 @@ def sendmail(sample = 0):
     print("Sending mail...")
     conn = sqlite3.connect("./data.db")  # Ensure correct path
     cursor = conn.cursor()
-
+    
 
     cursor.execute("SELECT * FROM employees;")  
     rows = cursor.fetchall()
