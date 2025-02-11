@@ -83,7 +83,7 @@ pip install -r requirements.txt
 
 #### FastAPI - Web framework for building APIs.
 #### Uvicorn - ASGI server for running FastAPI.
-#### PyPDF2 - PDF parsing library.
+#### PyPDF - PDF parsing library.
 #### Llama3 - NLP model for text parsing.
 #### Skrapp.io - API for fetching company emails.
 #### smtplib - SMTP for sending emails.
@@ -116,6 +116,6 @@ uvicorn app:app --reload --port 8080
 
 #### Big shoutout to FastAPI for making API development fast and easy.
 
-#### Thanks to PyPDF2 for PDF text extraction.
+#### Thanks to PyPDF for PDF text extraction.
 
 ## We hope you enjoy using HIREMATE-AI! Feel free to open an issue if you find any bugs or have suggestions! 🚀
