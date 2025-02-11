@@ -177,7 +177,7 @@ button:hover {
     /* Vertically center */
     height: 100vh;
     /* Full viewport height */
-    width: 100%;
+    width: 100vh;
     /* Use full viewport width */
     text-align: center;
     overflow: hidden;
