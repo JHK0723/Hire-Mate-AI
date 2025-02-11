@@ -43,7 +43,7 @@ def get_message(background_tasks: BackgroundTasks):
 @app.post("/send-emails/")
 async def send_emails(background_tasks: BackgroundTasks):
     print("Clicked Send Mail")
-    background_tasks.add_task(sendmail())
+    background_tasks.add_task(sendmail)
     return {"message": "Email sending started in the background"}
 
 
