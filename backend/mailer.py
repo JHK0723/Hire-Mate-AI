@@ -50,7 +50,7 @@ def sendmail(sample=0):
         email.set_content(email_body)
         email['subject'] = f"Job Application for {job_role} at {company}"
         email['to'] = mail_id
-        email['from'] = 'thebruzz0000@gmail.com'
+        email['from'] = 'Enter email here'
 
         pdf_path = "./uploads/resume.pdf"
 
@@ -65,7 +65,7 @@ def sendmail(sample=0):
         try:
             with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
                 smtp.ehlo()
-                smtp.login("thebruzz0000@gmail.com", "rblp vxrt lauq psct")
+                smtp.login("Enter email here", "Enter app password here")
                 response = smtp.send_message(email)
                 print(f"✅ Email sent successfully to {mail_id} 🚀")
                 sent_mails += 1
