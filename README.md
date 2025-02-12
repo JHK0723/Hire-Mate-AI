@@ -1,6 +1,6 @@
 # HIREMATE-AI 🚀💼
 
-**HIREMATE-AI** is an innovative web application designed to help job seekers by automatically generating job role and company suggestions from their resumes, fetching contact emails for those companies, and sending job application emails on their behalf! With the power of machine learning, web scraping, and automation, HIREMATE-AI streamlines the job application process like never before. 🤖✨
+**HIREMATE-AI** is an innovative web application designed to help job seekers by automatically generating job role and company suggestions from their resumes, fetching contact emails for those companies, and sending job application emails with their resume attached on their behalf! With the power of machine learning, web scraping, and automation, HIREMATE-AI streamlines the job application process like never before. 🤖✨
 
 ---
 
