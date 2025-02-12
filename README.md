@@ -23,6 +23,7 @@
 - **Python** - Core language
 - **PyPDF** - Extract text from resumes
 - **Llama3** - Parse resume data and suggest job roles/companies
+- **Llama2** - To generate the mail body for each mail
 - **Skrapp.io API** - Fetch emails of companies based on suggestions
 - **smtplib** - Send emails using Gmail SMTP
 - **SQLite** - Store employee data for easy access and management
